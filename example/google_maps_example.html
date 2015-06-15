@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google maps example</title>
+    <!-- include the stylesheets -->
+    <link rel="stylesheet" href="packages/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="packages/bootstrap/css/bootstrap-theme.css">
+
+    <style>
+        body {
+            padding-top: 50px;
+        }
+
+        .starter-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+
+        .app-map-canvas {
+            width: 200px;
+            height: 200px;
+            background-color: #00A6E4;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+    <h1 id="text">Google maps example</h1>
+
+    <form class="app-google-maps" role="form">
+        <h2>Google maps</h2>
+
+
+        <div class="form-group">
+            <div class="checkbox">
+                <label> <input type="checkbox" class="app-autoload">Autoload
+                    on start
+                </label>
+            </div>
+            <div>
+                <button class="btn btn-primary app-load">Load</button>
+            </div>
+            <label for="appInputApiKey">API Key</label> <input
+                class="form-control" id="appInputApiKey"
+                placeholder="Enter API Key from developer console">
+
+            <p>
+                Make sure you have created a project in your <a
+                    href="https://console.developers.google.com/">developer
+                console</a>
+            </p>
+        </div>
+
+        <div class="bg-info form-group">
+            <p class="app-result"></p>
+        </div>
+    </form>
+
+    <form role="form" class="app-map hidden">
+        <h2>Google Map</h2>
+
+        <div class="row">
+            <div class="col-md-4">
+                <input type="number" placeholder="Latitude" class="form-control app-lat">
+            </div>
+            <div class="col-md-4">
+                <input type="number" placeholder="Longitude" class="form-control app-lng">
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary app-go">Go</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            <div class="app-map-canvas"></div>
+                </div>
+        </div>
+    </form>
+    <form role="form" class="app-auth hidden">
+        <h2>Auth</h2>
+
+        <div class="checkbox">
+            <label> <input type="checkbox" class="app-autoauth">Authorized
+                on start
+            </label>
+        </div>
+        <p>
+            Make sure you have created a project in your <a
+                href="https://console.developers.google.com/">developer
+            console</a>
+        </p>
+
+        <div class="form-group">
+            <label for="appInputClientId">CLIENT ID</label> <input
+                class="form-control" id="appInputClientId"
+                placeholder="Enter client id from developer console">
+        </div>
+
+        <div class="checkbox">
+            <label> <input type="checkbox"
+                           class="app-approval-prompt">Force approval prompt
+            </label>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary app-authorize">Authorize</button>
+        </div>
+        <div class="bg-info form-group">
+            <p class="app-result"></p>
+        </div>
+    </form>
+
+</div>
+
+<script type="application/dart" src="google_maps_example.dart"></script>
+<script data-pub-inline src="packages/browser/dart.js"></script>
+
+<!-- include the javascript -->
+<script src="packages/bootstrap/jquery/jquery.js"></script>
+<script src="packages/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

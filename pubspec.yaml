@@ -1,0 +1,9 @@
+name: tekartik_google_maps
+description: google maps api wrapper
+dependencies:
+  browser: any
+  tekartik_utils:
+    git: git://github.com/alextekartik/tekartik_utils.dart
+dev_dependencies:
+  bootstrap: any
+  test: any
