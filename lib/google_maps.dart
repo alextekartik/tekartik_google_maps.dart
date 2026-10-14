@@ -27,8 +27,18 @@ Future<GoogleMaps> loadGoogleMaps() async {
       _googleMapsLoader.complete(_googleMaps);
     };
 
-    // no need to await here we have the callback
-    loadJavascriptScript('//maps.googleapis.com/maps/api/js?callback=${callbackName}');
+    // no need to await here we have the callback, but a failed load must
+    // fail the loader (and allow a retry) instead of hanging forever
+    var loader = _googleMapsLoader;
+    loadJavascriptScript('//maps.googleapis.com/maps/api/js?callback=${callbackName}')
+        .catchError((e) {
+      if (identical(_googleMapsLoader, loader)) {
+        _googleMapsLoader = null;
+      }
+      if (!loader.isCompleted) {
+        loader.completeError(e);
+      }
+    });
 
   }
   return _googleMapsLoader.future;

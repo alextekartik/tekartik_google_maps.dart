@@ -21,7 +21,8 @@ class MapTypeId {
 class GoogleMap {
   JsObject _jsObject;
   GoogleMap(Element mapElement, MapOptions mapOptions) {
-    new JsObject(googleMapsContext['Map'], [mapElement, mapOptions._jsObject]);
+    _jsObject = new JsObject(
+        googleMapsContext['Map'], [mapElement, mapOptions._jsObject]);
   }
 }
 class MapOptions {
